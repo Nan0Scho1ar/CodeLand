@@ -1,0 +1,7 @@
+[] button to sort by first/last name accending/decending
+[] 'add contact' functionality
+[X] list all current contacts
+[] have a more info page for each person
+[] map stuff
+[] edit contacts
+[] finish the todo list

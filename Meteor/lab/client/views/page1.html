@@ -1,0 +1,16 @@
+<template name='page1'>
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton}}
+	{{/contentFor}}
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Page 1</h1>	
+	{{/contentFor}}
+	{{#ionView}}
+		{{#ionContent}}
+			<a class="button button-assertive" href="/page2">Go to Page 2</a>
+			<div class="map-container">
+		    	{{> googleMap name = "exampleMap"options = exampleMapOptions}}
+		  	</div>
+		{{/ionContent}}
+	{{/ionView}}
+</template>

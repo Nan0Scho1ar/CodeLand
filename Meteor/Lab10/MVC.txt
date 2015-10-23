@@ -1,0 +1,3 @@
+Models: people Collection, orderTracker sessionVariable, contentCurrent sessionVariable
+Views: body, display, form, formDisplay, keypad
+Controllers: body, display, form, formDisplay, keypad

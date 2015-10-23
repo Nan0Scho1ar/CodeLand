@@ -1,0 +1,15 @@
+
+<template name='page2'>
+	{{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton}}
+    {{/contentFor}}
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">Page 2</h1>
+    {{/contentFor}}
+    {{#ionView}}
+    {{#ionContent}}
+    <a class='button button-positive' href='/'>Go to Page 1</a>
+    {{/ionContent}}
+    {{/ionView}}
+
+</template>

@@ -1,0 +1,20 @@
+<template name='listView'>
+	{{#contentFor "headerButtonRight"}}
+	<button class="button button-clear" href="/page1"><i class="icon ion-android-add-circle"></i></button>
+	{{/contentFor}}
+	{{#contentFor "headerTitle"}}
+	<h1 class="title">Contacts</h1>	
+	{{/contentFor}}
+	{{#ionView}}
+	{{#ionContent}}
+	<div class="list">
+		{{#each allPeople}}
+		<a class="item item-avatar item-icon-right" href="/{{UUID}}">
+			<img src="elephant_juggling.jpg">
+			<h2>{{firstName}} {{lastName}}</h2>
+		</a>
+		{{/each}}
+	</div>
+	{{/ionContent}}
+	{{/ionView}}
+</template>

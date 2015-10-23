@@ -1,0 +1,14 @@
+<template name="contact">
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton}}
+    {{/contentFor}}
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">{{firstName}} {{lastName}}</h1>   
+    {{/contentFor}}
+
+    <p>Gender: {{gender}}</p>
+    <p>Latitude: {{latitude}}</p>
+    <p>Longitude {{longitude}}</p>
+    <p>Phone number: {{phoneNumber}}</p>
+    <p>Email: {{email}}</p>
+</template>

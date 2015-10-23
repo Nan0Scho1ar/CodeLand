@@ -1,0 +1,20 @@
+<template name="display">
+  <button id="order" type="button" class="btn btn-primary">Reorder</button>
+  {{> highchartsHelper chartId="display" chartObject=displayChart}}
+  {{#each list}}
+  <div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{firstName}}</h3>
+  </div>
+  <div class="panel-body">
+    {{lastName}}
+    <br>
+    {{gpa}}
+    <br>
+    <button id="delete" type="button" class="btn btn-danger">Delete</button>
+  </div>
+</div>
+
+    <br>
+  {{/each}}
+</template>
