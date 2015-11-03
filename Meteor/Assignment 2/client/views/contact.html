@@ -2,13 +2,81 @@
     {{#contentFor "headerButtonLeft"}}
     {{>ionNavBackButton}}
     {{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+    <button id="showEdit" class="button button-clear">
+        Edit
+    </button>
+    {{/contentFor}}
     {{#contentFor "headerTitle"}}
     <h1 class="title">{{firstName}} {{lastName}}</h1>   
     {{/contentFor}}
-
-    <p>Gender: {{gender}}</p>
-    <p>Latitude: {{latitude}}</p>
-    <p>Longitude {{longitude}}</p>
-    <p>Phone number: {{phoneNumber}}</p>
-    <p>Email: {{email}}</p>
+    {{#ionView}}
+    {{#ionContent}}
+    <div class="content">
+        <div class="card">
+            <div class="item item-avatar item-icon-right">
+                <img src={{image}}>
+                {{firstName}} {{lastName}}
+            </div>
+            <div class="item item-body">
+                <p>Gender: {{gender}}</p>
+                <p>Latitude: {{latitude}}</p>
+                <p>Longitude {{longitude}}</p>
+                <p>Phone number: {{phoneNumber}}</p>
+                <p>Email: {{email}}</p>
+            </div>
+            <div class="item item-divider">
+                <div class="map-container">
+                    {{> googleMap name="exampleMap" options=exampleMapOptions}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/ionContent}}
+    {{/ionView}}
+    {{#if displayEdit}}
+    <div class="modal-backdrop active">
+        <div class="modal">
+            <div class="list">
+            <div class="item item-divider center-title">
+                    Edit Contact
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">First Name:</span>
+                    <input id="firstName" type="text" value={{firstName}}>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Last Name:</span>
+                    <input id="lastName" type="text" value={{lastName}}>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Latitude:</span>
+                    <input id="latitude" type="text" value={{latitude}}>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Longitude:</span>
+                    <input id="longitude" type="text" value={{longitude}}>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Gender</span>
+                    <input id="gender" type="text" value={{gender}}>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Phone Number:</span>
+                    <input id="phoneNumber" type="text" value={{phoneNumber}}>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input id="email" type="text" value={{email}}>
+                </label>
+            </div>
+            <button id="hideEdit" class="button button-royal">
+                Close
+            </button>
+            <button id="submitEdit" class="button button-royal">
+                Submit
+            </button>
+        </div>
+    </div>
+    {{/if}}
 </template>

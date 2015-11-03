@@ -1,0 +1,30 @@
+<template name="search">
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton}}
+    {{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+    <label id="searchIcon" class="item-input-wrapper pull-right">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input id="searchBar" type="search">
+    </label>
+    <a id="searchButton" class="button button-royal pull-right">
+        Search
+    </a>
+    {{/contentFor}}
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">Search</h1>
+    {{/contentFor}}
+    {{#ionView}}
+    {{#ionContent}}
+    <div class="list">
+    {{#each searchPeople}}
+        <a class="item item-avatar item-icon-right" href="/{{UUID}}">
+            <img src={{image}}>
+            <h2>{{firstName}} {{lastName}}</h2>
+            <p>{{email}}</p>
+        </a>
+        {{/each}}
+    </div>
+    {{/ionContent}}
+    {{/ionView}}
+</template> 

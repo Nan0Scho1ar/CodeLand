@@ -1,0 +1,29 @@
+.map-container {
+    width: 1600px;
+    max-width: 100%;
+    height: 500px;
+}
+.bigRed {
+    font-size: 40px;
+    color: #886AEA;
+}
+#searchBar {
+    background-color: #EEEEEE;
+    height: 25px;
+    float: right;
+
+}
+.center-title {
+    text-align: center;
+}
+#searchIcon {
+    max-width: 200px;
+    position: relative;
+    left: 79.2%;
+} 
+.modal-backdrop {
+    background-color: rgba(0,0,0,0.5);
+}
+.resize-modal {
+    height: = 400px;
+}

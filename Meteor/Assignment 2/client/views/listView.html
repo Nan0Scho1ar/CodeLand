@@ -1,20 +1,122 @@
 <template name='listView'>
-	{{#contentFor "headerButtonRight"}}
-	<button class="button button-clear" href="/page1"><i class="icon ion-android-add-circle"></i></button>
-	{{/contentFor}}
-	{{#contentFor "headerTitle"}}
-	<h1 class="title">Contacts</h1>	
-	{{/contentFor}}
-	{{#ionView}}
-	{{#ionContent}}
-	<div class="list">
-		{{#each allPeople}}
-		<a class="item item-avatar item-icon-right" href="/{{UUID}}">
-			<img src="elephant_juggling.jpg">
-			<h2>{{firstName}} {{lastName}}</h2>
-		</a>
-		{{/each}}
-	</div>
-	{{/ionContent}}
-	{{/ionView}}
+	{{#contentFor "headerButtonLeft"}}
+	<button id="showAdd" class="button button-clear">
+		<i class="icon ion-android-add-circle">	
+		</i>
+        Add Contact
+    </button>
+    {{/contentFor}}
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">Contacts</h1>	
+    {{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+    <label id="searchIcon" class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input id="searchBar" type="search">
+    </label>
+    <a id="searchButton" class="button button-royal pull-right" href="/search">
+        Search
+    </a>
+    {{/contentFor}}
+    {{#ionView}}
+    {{#ionContent}}
+    <div class="list">
+      <div class="item item-divider">
+         <button id="firstOrder" class="button button-stable">
+            First Name  
+            {{#if firstUp}}
+            <i class="icon ion-arrow-up-c"></i>
+            {{/if}}
+            {{#if firstDown}}
+            <i class="icon ion-arrow-down-c"></i>
+            {{/if}}
+        </button>
+        <button id="lastOrder" class="button button-stable">
+            Last Name  
+            {{#if lastUp}}
+            <i class="icon ion-arrow-up-c"></i>
+            {{/if}}
+            {{#if lastDown}}
+            <i class="icon ion-arrow-down-c"></i>
+            {{/if}}
+        </button>
+        <button id="deleteToggle" class="button button-stable">
+            {{#if displayMode}}
+            Delete Mode Off
+            <i class="icon ion-ios-close-outline"></i>
+            {{/if}}
+            {{#if deleteMode}}
+            Delete Mode On
+            <i class="icon ion-ios-close"></i>
+            {{/if}}
+        </button>
+    </div>
+    {{#if deleteMode}}
+    {{#each allPeople}}
+    <a class="item item-avatar item-icon-right">
+     <img src={{image}}>
+     <h2>{{firstName}} {{lastName}}</h2>
+     <button id="delete" class="button button-clear" name={{UUID}}>
+        <i class="ion-ios-minus bigRed"></i>
+    </button>
+</a>
+{{/each}}
+{{/if}}
+{{#if displayMode}}
+{{#each allPeople}}
+<a class="item item-avatar item-icon-right" href="/{{UUID}}">
+ <img src={{image}}>
+ <h2>{{firstName}} {{lastName}}</h2>
+ <p>{{email}}</p>
+</a>
+{{/each}}
+{{/if}}
+</div>
+{{/ionContent}}
+{{/ionView}}
+{{#if displayAdd}}
+<div class="modal-backdrop active">
+    <div id="popup" class="modal">
+        <div class="list">
+            <div class="item item-divider center-title">
+            Add Contact
+            </div>
+            <label class="item item-input">
+               <span class="input-label">First Name:</span>
+               <input id="firstName" type="text">
+           </label>
+           <label class="item item-input">
+               <span class="input-label">Last Name:</span>
+               <input id="lastName" type="text">
+           </label>
+           <label class="item item-input">
+               <span class="input-label">Latitude:</span>
+               <input id="latitude" type="text">
+           </label>
+           <label class="item item-input">
+               <span class="input-label">Longitude:</span>
+               <input id="longitude" type="text">
+           </label>
+           <label class="item item-input">
+               <span class="input-label">Gender</span>
+               <input id="gender" type="text">
+           </label>
+           <label class="item item-input">
+               <span class="input-label">Phone Number:</span>
+               <input id="phoneNumber" type="text">
+           </label>
+           <label class="item item-input">
+               <span class="input-label">Email</span>
+               <input id="email" type="text">
+           </label>
+       </div>
+       <button id="hideAdd" class="button button-royal">
+        Close
+    </button>
+    <button id="submitAdd" class="button button-royal">
+        Submit
+    </button>
+</div>
+</div>
+{{/if}}
 </template>
